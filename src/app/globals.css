@@ -1,0 +1,165 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #000000; /* Pure black background */
+    color: #ffffff;
+    line-height: 1.6;
+}
+.text-accent-red {
+    color: #ff4d4d; /* A vibrant, professional red */
+}
+.bg-accent-red {
+    background-color: #ff4d4d;
+}
+.hover\:bg-accent-red-darker:hover {
+    background-color: #e60000; /* Darker red for hover states */
+}
+.border-accent-red {
+    border-color: #ff4d4d;
+}
+.shadow-red-glow {
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.4); /* Subtle red glow */
+}
+.hover\:shadow-red-glow-lg:hover {
+    box-shadow: 0 0 25px rgba(255, 77, 77, 0.6);
+}
+
+/* Custom styles for the dropdown menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1a1a1a; /* Dark gray for contrast */
+    min-width: 180px;
+    box-shadow: 0px 8px 20px 0px rgba(0,0,0,0.4);
+    z-index: 10;
+    border-radius: 0.75rem; /* More rounded corners */
+    overflow: hidden;
+    border: 1px solid rgba(255, 77, 77, 0.2); /* Subtle red border */
+    padding: 0.5rem 0;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: #e0e0e0;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 400;
+}
+.dropdown-content a:hover {
+    background-color: #2a2a2a; /* Slightly lighter dark gray on hover */
+    color: #ff4d4d; /* Red text on hover */
+}
+
+/* Hero section background with subtle gradient/pattern */
+.hero-background {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%); /* Black to dark gray gradient */
+    position: relative;
+    overflow: hidden;
+}
+.hero-background::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 77, 77, 0.1) 0%, transparent 70%); /* Red glow */
+    animation: rotateBackground 20s linear infinite;
+    opacity: 0.3;
+}
+@keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Card hover effects */
+.card-hover-effect {
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent; /* Initial transparent border */
+}
+.card-hover-effect:hover {
+    border-color: #ff4d4d; /* Red border on hover */
+    transform: translateY(-8px) scale(1.02); /* More pronounced lift */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5), 0 0 20px rgba(255, 77, 77, 0.3); /* Deeper shadow with red glow */
+    background-color: #1f1f1f; /* Slightly lighter dark gray on hover */
+}
+
+/* Button hover effect */
+.btn-fancy-hover {
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+.btn-fancy-hover::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out;
+    z-index: 0;
+}
+.btn-fancy-hover:hover::before {
+    width: 200%;
+    height: 200%;
+}
+.btn-fancy-hover span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Accordion styles for Our Approach */
+.accordion-item {
+    border-bottom: 1px solid #2a2a2a; /* Dark gray border */
+}
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 0;
+    cursor: pointer;
+    font-size: 1.5rem; /* text-2xl */
+    font-weight: 600; /* font-semibold */
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+.accordion-header:hover {
+    color: #ff4d4d; /* Red on hover */
+}
+.accordion-header .number {
+    color: #ff4d4d; /* Red numbering */
+    font-size: 1.875rem; /* text-3xl */
+    font-weight: 800; /* font-extrabold */
+    margin-right: 1.5rem; /* mr-6 */
+    width: 3rem; /* Fixed width for alignment */
+    text-align: right;
+}
+.accordion-header .icon {
+    transition: transform 0.3s ease;
+}
+.accordion-header.active .icon {
+    transform: rotate(45deg); /* Rotate icon when active */
+}
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.5s ease-out;
+    padding-bottom: 0;
+    color: #b0b0b0; /* Lighter gray for content */
+}
+.accordion-content.open {
+    max-height: 500px; /* Adjust as needed for content height */
+    padding-bottom: 1.5rem; /* pb-6 */
+}
+
